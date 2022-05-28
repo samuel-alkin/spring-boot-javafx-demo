@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxdemo.controller.GameController">
+    <ChoiceBox fx:id="choiceBoxTeams" layoutX="14.0" layoutY="14.0" prefWidth="150.0" />
+    <TextField fx:id="opponentTeamName" layoutX="179.0" layoutY="14.0" promptText="Opponent" />
+    <DatePicker fx:id="gameDate" layoutX="336.0" layoutY="14.0" />
+    <Button fx:id="buttonStartGame" layoutX="518.0" layoutY="14.0" mnemonicParsing="false" onAction="#startGame" prefHeight="25.0" prefWidth="76.0" text="Start" />
+    <TableView fx:id="playersTable" layoutX="14.0" layoutY="48.0" prefHeight="226.0" prefWidth="580.0">
+      <columns>
+          <TableColumn prefWidth="27.0" text="#">
+              <cellValueFactory>
+                  <PropertyValueFactory property="number" />
+              </cellValueFactory>
+          </TableColumn>
+          <TableColumn prefWidth="75.0" text="FirstName">
+              <cellValueFactory>
+                  <PropertyValueFactory property="firstName" />
+              </cellValueFactory>
+          </TableColumn>
+          <TableColumn prefWidth="76.0" text="LastName">
+              <cellValueFactory>
+                  <PropertyValueFactory property="lastName" />
+              </cellValueFactory>
+          </TableColumn>
+          <TableColumn prefWidth="76.0" text="FGA">
+              <cellValueFactory>
+                  <PropertyValueFactory property="fieldGoalAttempts" />
+              </cellValueFactory>
+          </TableColumn>
+          <TableColumn prefWidth="76.0" text="FGM">
+              <cellValueFactory>
+                  <PropertyValueFactory property="fieldGoalsMade" />
+              </cellValueFactory>
+          </TableColumn>
+      </columns>
+    </TableView>
+    <Button layoutX="14.0" layoutY="292.0" mnemonicParsing="false" onAction="#handleFieldGoalAttempt" text="FGA" />
+    <Button layoutX="70.0" layoutY="292.0" mnemonicParsing="false" onAction="#handleFieldGoalMade" text="FGM" />
+   <Button layoutX="518.0" layoutY="361.0" mnemonicParsing="false" onAction="#finishGame" prefHeight="25.0" prefWidth="76.0" text="Finish" />
+</AnchorPane>

@@ -27,7 +27,7 @@ public class FXApplication extends Application {
         Platform.exit();
     }
 
-    static class StageReadyEvent extends ApplicationEvent {
+    public static class StageReadyEvent extends ApplicationEvent {
 
         public StageReadyEvent(Stage source) {
             super(source);
