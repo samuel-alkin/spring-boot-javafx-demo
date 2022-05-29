@@ -101,16 +101,11 @@ public class GameController extends Controller {
             statLines.add(statLine);
         }
 
-        ObservableList<StatLineProjection> statLineProjections = FXCollections.observableList(statLines.stream().map(statLine -> {
-            StatLineProjection statLineProjection = new StatLineProjection();
-            statLineProjection.setId(statLine.getId());
-            statLineProjection.setNumber(statLine.getPlayer().getJerseyNumber());
-            statLineProjection.setFirstName(statLine.getPlayer().getFirstName());
-            statLineProjection.setLastName(statLine.getPlayer().getLastName());
-            statLineProjection.setFieldGoalAttempts(statLine.getFieldGoalAttempts());
-            statLineProjection.setFieldGoalsMade(statLine.getFieldGoalsMade());
-            return statLineProjection;
-        }).collect(Collectors.toList()));
+        ObservableList<StatLineProjection> statLineProjections = FXCollections.observableList(
+                statLines.stream()
+                        .map(StatLineProjection::fromStatLine)
+                        .collect(Collectors.toList())
+        );
 
         playersTable.setItems(statLineProjections);
     }
@@ -122,9 +117,10 @@ public class GameController extends Controller {
             System.out.println("Not selected");
             return;
         }
-        System.out.println(statLineProjection);
-        statLineService.handleFieldGoalAttempt(statLineProjection);
+        StatLine newStatLine = statLineService.handleFieldGoalAttempt(statLineProjection);
+        statLineProjection.updateProjection(newStatLine);
         playersTable.refresh();
+        playersTable.getSelectionModel().clearSelection();
     }
 
     @FXML
@@ -134,9 +130,10 @@ public class GameController extends Controller {
             System.out.println("Not selected");
             return;
         }
-        System.out.println(statLineProjection);
-        statLineService.handleFieldGoalMade(statLineProjection);
+        StatLine newStatLine = statLineService.handleFieldGoalMade(statLineProjection);
+        statLineProjection.updateProjection(newStatLine);
         playersTable.refresh();
+        playersTable.getSelectionModel().clearSelection();
     }
 
     @FXML

@@ -23,22 +23,19 @@ public class StatLineService implements IStatLineService {
 
     @Override
     @Transactional
-    public void handleFieldGoalMade(StatLineProjection statLineProjection) {
+    public StatLine handleFieldGoalMade(StatLineProjection statLineProjection) {
         StatLine statLine = statLineRepository.getById(statLineProjection.getId());
         statLine.setFieldGoalsMade(statLine.getFieldGoalsMade() + 1);
         statLine.setFieldGoalAttempts(statLine.getFieldGoalAttempts() + 1);
-        statLine = statLineRepository.save(statLine);
-        statLineProjection.setFieldGoalsMade(statLine.getFieldGoalsMade());
-        statLineProjection.setFieldGoalAttempts(statLine.getFieldGoalAttempts());
+        return statLineRepository.save(statLine);
     }
 
     @Override
     @Transactional
-    public void handleFieldGoalAttempt(StatLineProjection statLineProjection) {
+    public StatLine handleFieldGoalAttempt(StatLineProjection statLineProjection) {
         StatLine statLine = statLineRepository.getById(statLineProjection.getId());
         statLine.setFieldGoalAttempts(statLine.getFieldGoalAttempts() + 1);
-        statLine = statLineRepository.save(statLine);
-        statLineProjection.setFieldGoalAttempts(statLine.getFieldGoalAttempts());
+        return statLineRepository.save(statLine);
     }
 
 }

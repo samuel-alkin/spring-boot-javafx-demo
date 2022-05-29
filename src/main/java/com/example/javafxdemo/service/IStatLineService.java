@@ -7,7 +7,7 @@ public interface IStatLineService {
 
     StatLine createStatLine(StatLine statLine);
 
-    void handleFieldGoalMade(StatLineProjection statLineProjection);
+    StatLine handleFieldGoalMade(StatLineProjection statLineProjection);
 
-    void handleFieldGoalAttempt(StatLineProjection statLineProjection);
+    StatLine handleFieldGoalAttempt(StatLineProjection statLineProjection);
 }
