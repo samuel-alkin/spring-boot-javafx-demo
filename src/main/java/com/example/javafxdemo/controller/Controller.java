@@ -22,17 +22,17 @@ public class Controller implements ApplicationListener<FXApplication.StageReadyE
     }
 
     protected void changeToMain() {
-        stage.setScene(new Scene(fxWeaver.loadView(MainController.class), 800, 600));
+        stage.setScene(new Scene(fxWeaver.loadView(MainController.class)));
         stage.show();
     }
 
     protected void changeToGame() {
-        stage.setScene(new Scene(fxWeaver.loadView(GameController.class), 800, 600));
+        stage.setScene(new Scene(fxWeaver.loadView(GameController.class)));
         stage.show();
     }
 
     protected void changeToTeam() {
-        stage.setScene(new Scene(fxWeaver.loadView(TeamController.class), 800, 600));
+        stage.setScene(new Scene(fxWeaver.loadView(TeamController.class)));
         stage.show();
     }
 
