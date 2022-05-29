@@ -117,7 +117,7 @@ public class GameController extends Controller {
             System.out.println("Not selected");
             return;
         }
-        StatLine newStatLine = statLineService.handleFieldGoalAttempt(statLineProjection);
+        StatLine newStatLine = statLineService.handleFieldGoalAttempt(statLineProjection.getId());
         statLineProjection.updateProjection(newStatLine);
         playersTable.refresh();
         playersTable.getSelectionModel().clearSelection();
@@ -130,7 +130,141 @@ public class GameController extends Controller {
             System.out.println("Not selected");
             return;
         }
-        StatLine newStatLine = statLineService.handleFieldGoalMade(statLineProjection);
+        StatLine newStatLine = statLineService.handleFieldGoalMade(statLineProjection.getId());
+        statLineProjection.updateProjection(newStatLine);
+        playersTable.refresh();
+        playersTable.getSelectionModel().clearSelection();
+    }
+
+    @FXML
+    public void handle3PAttempt(ActionEvent actionEvent) {
+        StatLineProjection statLineProjection = playersTable.getSelectionModel().getSelectedItem();
+        if (statLineProjection == null) {
+            System.out.println("Not selected");
+            return;
+        }
+        StatLine newStatLine = statLineService.handleThreePointAttempt(statLineProjection.getId());
+        statLineProjection.updateProjection(newStatLine);
+        playersTable.refresh();
+        playersTable.getSelectionModel().clearSelection();
+    }
+
+    @FXML
+    public void handle3PMade(ActionEvent actionEvent) {
+        StatLineProjection statLineProjection = playersTable.getSelectionModel().getSelectedItem();
+        if (statLineProjection == null) {
+            System.out.println("Not selected");
+            return;
+        }
+        StatLine newStatLine = statLineService.handleThreePointMade(statLineProjection.getId());
+        statLineProjection.updateProjection(newStatLine);
+        playersTable.refresh();
+        playersTable.getSelectionModel().clearSelection();
+    }
+
+    public void handleFreeThrowAttempt(ActionEvent actionEvent) {
+        StatLineProjection statLineProjection = playersTable.getSelectionModel().getSelectedItem();
+        if (statLineProjection == null) {
+            System.out.println("Not selected");
+            return;
+        }
+        StatLine newStatLine = statLineService.handleFreeThrowAttempt(statLineProjection.getId());
+        statLineProjection.updateProjection(newStatLine);
+        playersTable.refresh();
+        playersTable.getSelectionModel().clearSelection();
+    }
+
+    public void handleFreeThrowMade(ActionEvent actionEvent) {
+        StatLineProjection statLineProjection = playersTable.getSelectionModel().getSelectedItem();
+        if (statLineProjection == null) {
+            System.out.println("Not selected");
+            return;
+        }
+        StatLine newStatLine = statLineService.handleFreeThrowMade(statLineProjection.getId());
+        statLineProjection.updateProjection(newStatLine);
+        playersTable.refresh();
+        playersTable.getSelectionModel().clearSelection();
+    }
+
+    public void handleAssist(ActionEvent actionEvent) {
+        StatLineProjection statLineProjection = playersTable.getSelectionModel().getSelectedItem();
+        if (statLineProjection == null) {
+            System.out.println("Not selected");
+            return;
+        }
+        StatLine newStatLine = statLineService.handleAssist(statLineProjection.getId());
+        statLineProjection.updateProjection(newStatLine);
+        playersTable.refresh();
+        playersTable.getSelectionModel().clearSelection();
+    }
+
+    public void handleDefensiveRebound(ActionEvent actionEvent) {
+        StatLineProjection statLineProjection = playersTable.getSelectionModel().getSelectedItem();
+        if (statLineProjection == null) {
+            System.out.println("Not selected");
+            return;
+        }
+        StatLine newStatLine = statLineService.handleDefensiveRebound(statLineProjection.getId());
+        statLineProjection.updateProjection(newStatLine);
+        playersTable.refresh();
+        playersTable.getSelectionModel().clearSelection();
+    }
+
+    public void handleOffensiveRebound(ActionEvent actionEvent) {
+        StatLineProjection statLineProjection = playersTable.getSelectionModel().getSelectedItem();
+        if (statLineProjection == null) {
+            System.out.println("Not selected");
+            return;
+        }
+        StatLine newStatLine = statLineService.handleOffensiveRebound(statLineProjection.getId());
+        statLineProjection.updateProjection(newStatLine);
+        playersTable.refresh();
+        playersTable.getSelectionModel().clearSelection();
+    }
+
+    public void handleSteal(ActionEvent actionEvent) {
+        StatLineProjection statLineProjection = playersTable.getSelectionModel().getSelectedItem();
+        if (statLineProjection == null) {
+            System.out.println("Not selected");
+            return;
+        }
+        StatLine newStatLine = statLineService.handleSteal(statLineProjection.getId());
+        statLineProjection.updateProjection(newStatLine);
+        playersTable.refresh();
+        playersTable.getSelectionModel().clearSelection();
+    }
+
+    public void handleBlock(ActionEvent actionEvent) {
+        StatLineProjection statLineProjection = playersTable.getSelectionModel().getSelectedItem();
+        if (statLineProjection == null) {
+            System.out.println("Not selected");
+            return;
+        }
+        StatLine newStatLine = statLineService.handleBlock(statLineProjection.getId());
+        statLineProjection.updateProjection(newStatLine);
+        playersTable.refresh();
+        playersTable.getSelectionModel().clearSelection();
+    }
+
+    public void handleTurnover(ActionEvent actionEvent) {
+        StatLineProjection statLineProjection = playersTable.getSelectionModel().getSelectedItem();
+        if (statLineProjection == null) {
+            System.out.println("Not selected");
+            return;
+        }
+        StatLine newStatLine = statLineService.handleTurnover(statLineProjection.getId());
+        statLineProjection.updateProjection(newStatLine);
+        playersTable.refresh();
+        playersTable.getSelectionModel().clearSelection();
+    }
+
+    public void handleFoul(ActionEvent actionEvent) {
+        StatLineProjection statLineProjection = playersTable.getSelectionModel().getSelectedItem();
+        if (statLineProjection == null) {
+            System.out.println("Not selected");
+            return;
+        }
+        StatLine newStatLine = statLineService.handleFoul(statLineProjection.getId());
         statLineProjection.updateProjection(newStatLine);
         playersTable.refresh();
         playersTable.getSelectionModel().clearSelection();

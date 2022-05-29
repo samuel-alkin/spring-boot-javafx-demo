@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxdemo.controller.TeamController">
-    <Label layoutX="206.0" layoutY="14.0" text="Create Team">
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxdemo.controller.TeamController">
+    <Label layoutX="448.0" layoutY="14.0" text="Create Team">
         <font>
             <Font size="34.0" />
         </font>
     </Label>
-    <Label layoutX="58.0" layoutY="93.0" prefHeight="25.0" prefWidth="74.0" text="Teamname:" />
-    <TextField fx:id="teamName" layoutX="133.0" layoutY="93.0" prefHeight="25.0" prefWidth="141.0" />
-    <Label layoutX="326.0" layoutY="93.0" prefHeight="25.0" prefWidth="74.0" text="City:" />
-    <TextField fx:id="teamCity" layoutX="401.0" layoutY="93.0" prefHeight="25.0" prefWidth="141.0" />
-    <TableView fx:id="playersTable" editable="true" layoutX="58.0" layoutY="132.0" prefHeight="166.0" prefWidth="484.0">
+    <Label layoutX="79.0" layoutY="114.0" prefHeight="25.0" prefWidth="74.0" text="Teamname:" />
+    <TextField fx:id="teamName" layoutX="154.0" layoutY="114.0" prefHeight="25.0" prefWidth="141.0" />
+    <Label layoutX="347.0" layoutY="114.0" prefHeight="25.0" prefWidth="74.0" text="City:" />
+    <TextField fx:id="teamCity" layoutX="422.0" layoutY="114.0" prefHeight="25.0" prefWidth="141.0" />
+    <TableView fx:id="playersTable" editable="true" layoutX="79.0" layoutY="151.0" prefHeight="359.0" prefWidth="883.0">
         <columns>
             <TableColumn prefWidth="176.0" text="FirstName">
                 <cellValueFactory><PropertyValueFactory property="firstName" />
@@ -30,13 +31,13 @@
             </TableColumn>
         </columns>
     </TableView>
-    <TextField fx:id="newFirstName" layoutX="58.0" layoutY="298.0" prefHeight="25.0" prefWidth="119.0" promptText="FirstName" />
-    <TextField fx:id="newLastName" layoutX="190.0" layoutY="298.0" prefHeight="25.0" prefWidth="119.0" promptText="LastName" />
-    <Spinner fx:id="newNumber" editable="true" layoutX="321.0" layoutY="298.0" prefHeight="25.0" prefWidth="125.0" promptText="Number">
+    <TextField fx:id="newFirstName" layoutX="79.0" layoutY="518.0" prefHeight="25.0" prefWidth="220.0" promptText="FirstName" />
+    <TextField fx:id="newLastName" layoutX="303.0" layoutY="518.0" prefHeight="25.0" prefWidth="220.0" promptText="LastName" />
+    <Spinner fx:id="newNumber" editable="true" layoutX="530.0" layoutY="518.0" prefHeight="25.0" prefWidth="125.0" promptText="Number">
         <valueFactory>
-            <SpinnerValueFactory.IntegerSpinnerValueFactory min="0" max="99"/>
+            <SpinnerValueFactory.IntegerSpinnerValueFactory max="99" min="0" />
         </valueFactory>
     </Spinner>
-    <Button layoutX="468.0" layoutY="298.0" mnemonicParsing="false" onAction="#addPlayerToTable" text="Add Player" />
-    <Button layoutX="495.0" layoutY="349.0" mnemonicParsing="false" onAction="#createNewTeam" text="Finish" />
+    <Button layoutX="662.0" layoutY="518.0" mnemonicParsing="false" onAction="#addPlayerToTable" prefHeight="25.0" prefWidth="131.0" text="Add Player" />
+    <Button layoutX="831.0" layoutY="561.0" mnemonicParsing="false" onAction="#createNewTeam" prefHeight="25.0" prefWidth="131.0" text="Finish" />
 </AnchorPane>

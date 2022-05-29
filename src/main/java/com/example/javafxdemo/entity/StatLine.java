@@ -16,6 +16,28 @@ public class StatLine {
 
     private int fieldGoalsMade;
 
+    private int threePointAttempts;
+
+    private int threePointMade;
+
+    private int freeThrowAttempts;
+
+    private int freeThrowsMade;
+
+    private int assists;
+
+    private int defensiveRebounds;
+
+    private int offensiveRebounds;
+
+    private int steals;
+
+    private int blocks;
+
+    private int turnovers;
+
+    private int fouls;
+
     @ManyToOne
     @JoinColumn(name = "player_id")
     private Player player;
